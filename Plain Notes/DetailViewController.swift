@@ -47,13 +47,13 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillDisappear(animated: Bool) {
         super.viewWillAppear(animated)
         if objects.count == 0{
             return
         }
         objects[currentIndex] = detailDescriptionLabel.text
-        if detailDescriptionLabel.text == ""{
+        if detailDescriptionLabel.text == "" {
             objects[currentIndex] = BLANK_NOTE
         }
         

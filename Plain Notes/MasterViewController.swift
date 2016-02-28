@@ -42,9 +42,14 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        objects.insert(BLANK_NOTE, atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        if objects.count == 0 || objects[0] != BLANK_NOTE{
+            objects.insert(BLANK_NOTE, atIndex: 0)
+            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }
+    
+        currentIndex = 0
+        self.performSegueWithIdentifier("showDetail", sender: self)
     }
 
     // MARK: - Segues
