@@ -65,6 +65,11 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         masterView?.save()
         masterView?.tableView.reloadData()
     }
+    
+    func textViewDidChange(textView: UITextView) {
+        objects[currentIndex] = detailDescriptionLabel.text
+        saveAndUpdate()
+    }
 
 
 }
