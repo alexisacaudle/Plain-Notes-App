@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var detailDescriptionLabel: UITextView!
 
@@ -39,6 +39,7 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         detailViewController = self
         detailDescriptionLabel.becomeFirstResponder()
+        detailDescriptionLabel.delegate = self
         self.configureView()
     }
 

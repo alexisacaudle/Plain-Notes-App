@@ -35,6 +35,13 @@ class MasterViewController: UITableViewController {
         save()
         super.viewWillAppear(animated)
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if objects.count == 0{
+            insertNewObject(self)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -96,6 +103,18 @@ class MasterViewController: UITableViewController {
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+    
+    override func setEditing(editing: Bool, animated: Bool)
+    {
+        super.setEditing(editing, animated: animated)
+        if editing{
+            return
+        }
+    }
+    
+    override func tableView(tableView: UITableView, didEndEditingRowAtIndexPath indexPath: NSIndexPath) {
+        save()
     }
     
     func save(){
